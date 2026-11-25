@@ -1,0 +1,69 @@
+%PDF-1.4
+1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj
+2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj
+3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >> endobj
+4 0 obj << /Length 1395 >> stream
+BT
+/F1 15 Tf
+50 755 Td
+(Muhammad Arsalan - Laravel Developer CV \(Placeholder\)) Tj
+/F1 10 Tf
+0 -16 Td
+(Location: Islamabad, Pakistan \(Open to remote & relocation\)) Tj
+0 -16 Td
+(Email: arslankhakwani001@gmail.com | GitHub / LinkedIn: [PLACEHOLDER]) Tj
+0 -16 Td
+() Tj
+0 -16 Td
+(SUMMARY) Tj
+0 -16 Td
+(Laravel developer currently working at Netrix Cloud \(since June 2025\), building) Tj
+0 -16 Td
+(web applications with PHP, Laravel, and MySQL: REST APIs, RBAC, multi-tenancy,) Tj
+0 -16 Td
+(and real-time notifications. Also experienced in .NET \(ASP.NET MVC & Core\).) Tj
+0 -16 Td
+() Tj
+0 -16 Td
+(EXPERIENCE) Tj
+0 -16 Td
+(Laravel Developer - Netrix Cloud \(Jun 2025 - Present, Full-time\)) Tj
+0 -16 Td
+(- Built and maintained PHP/Laravel modules and RESTful APIs) Tj
+0 -16 Td
+(- Designed MySQL schemas with Eloquent, migrations, and pivot tables) Tj
+0 -16 Td
+(- Implemented authentication, middleware, RBAC, and multi-tenant operations) Tj
+0 -16 Td
+(- Integrated Pusher real-time notifications and Laravel Scheduler jobs) Tj
+0 -16 Td
+() Tj
+0 -16 Td
+(.NET Developer - Freelance \([START DATE] - [END DATE / Present]\)) Tj
+0 -16 Td
+(- Built ASP.NET MVC and ASP.NET Core web applications with SQL Server & EF) Tj
+0 -16 Td
+() Tj
+0 -16 Td
+(EDUCATION) Tj
+0 -16 Td
+(BSCS \(2020 - 2024\)) Tj
+0 -16 Td
+() Tj
+0 -16 Td
+(NOTE: Replace public/cv/Muhammad-Arsalan-Laravel-CV.pdf with your final resume.) Tj
+ET
+endstream endobj
+5 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001688 00000 n 
+trailer << /Size 6 /Root 1 0 R >>
+startxref
+1758
+%%EOF

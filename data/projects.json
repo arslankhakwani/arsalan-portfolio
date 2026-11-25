@@ -1,0 +1,243 @@
+[
+  {
+    "title": "Task Management System",
+    "slug": "task-management-system",
+    "shortDescription": "Hierarchical project and task tracking with real-time Pusher notifications and automated overdue workflows.",
+    "coverImage": "/images/projects/task-management.jpg",
+    "tags": ["Laravel", "MySQL", "Pusher", "REST APIs", "Laravel Scheduler"],
+    "stack": "laravel",
+    "type": "employment",
+    "date": "2025",
+    "overview": "A collaborative task management module built with PHP and Laravel to organize workspaces into projects, folders, lists, and actionable tasks. Designed to support fast team coordination with instant activity updates and reliable deadline tracking.",
+    "role": "Backend & Full-Stack Laravel Developer — responsible for database schema design, Eloquent relationships, API endpoints, real-time event broadcasting, and scheduled task automation.",
+    "features": [
+      "Multi-level hierarchy: Projects, Folders, Lists, and Tasks with flexible status tracking",
+      "Task assignments, threaded comments, and activity history per task",
+      "Real-time in-app notifications powered by Pusher and Laravel Broadcasting",
+      "Automated overdue task detection and reminder triggers via Laravel Scheduler",
+      "Role-based access permissions and middleware guards across workspace actions"
+    ],
+    "techStack": [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "Eloquent ORM",
+      "Pusher",
+      "Laravel Broadcasting",
+      "Laravel Scheduler",
+      "REST APIs"
+    ],
+    "challengesAndSolutions": [
+      {
+        "challenge": "Deeply nested project-folder-list-task queries risked N+1 query bottlenecks when loading workspace dashboards.",
+        "solution": "Structured clean Eloquent relationships with eager loading, composite indexes on foreign keys, and scoped queries to keep list responses fast."
+      },
+      {
+        "challenge": "Keeping assigned team members updated immediately without requiring manual page refreshes or heavy polling.",
+        "solution": "Integrated Laravel Broadcasting with Pusher private channels so task assignments, status changes, and comments push to relevant users in real time."
+      },
+      {
+        "challenge": "Reliably flagging overdue tasks across active workspaces without impacting request latency.",
+        "solution": "Offloaded overdue checks to a scheduled Artisan command running on Laravel Scheduler with batched database updates and queued notifications."
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/images/projects/task-management.jpg",
+        "alt": "Task Management System architecture and workspace overview",
+        "caption": "Workspace hierarchy, real-time notification pipeline, and scheduled overdue processing."
+      }
+    ],
+    "githubUrl": "https://github.com/arslan-placeholder/task-management-system",
+    "liveDemoUrl": "https://demo-placeholder.example.com/task-management"
+  },
+  {
+    "title": "Multi-Tenant Business Management App",
+    "slug": "multi-tenant-business-app",
+    "shortDescription": "Isolated tenant workspaces with role-based permissions and tenant-aware backend APIs in Laravel.",
+    "coverImage": "/images/projects/multi-tenant.jpg",
+    "tags": ["Laravel", "MySQL", "Multi-Tenancy", "RBAC", "Middleware"],
+    "stack": "laravel",
+    "type": "employment",
+    "date": "2025",
+    "overview": "A multi-tenant business management web application built in Laravel where independent organizations operate within isolated tenant contexts. Engineered to keep tenant data strictly separated while sharing a maintainable core codebase.",
+    "role": "Laravel Developer — implemented tenant resolution middleware, tenant-specific database operations, role-based access control, and RESTful backend modules.",
+    "features": [
+      "Tenant identification and context binding through custom Laravel middleware",
+      "Strict tenant-scoped data queries and tenant-specific database operations",
+      "Authentication and role-based access control (RBAC) per organization",
+      "RESTful APIs structured for clean frontend integration and predictable validation",
+      "Relational MySQL schema managed through versioned migrations and seeders"
+    ],
+    "techStack": [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "Eloquent ORM",
+      "Custom Middleware",
+      "RBAC",
+      "REST APIs"
+    ],
+    "challengesAndSolutions": [
+      {
+        "challenge": "Preventing cross-tenant data leaks across shared application endpoints and background operations.",
+        "solution": "Enforced tenant context resolution early in the request lifecycle via middleware and applied consistent scoping across models and database operations."
+      },
+      {
+        "challenge": "Supporting varying user permission levels across different tenant organizations.",
+        "solution": "Implemented relational role and permission pivot tables with middleware and policy checks tied to the authenticated user's tenant context."
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/images/projects/multi-tenant.jpg",
+        "alt": "Multi-Tenant Business Management App system diagram",
+        "caption": "Request-level tenant isolation, RBAC enforcement, and scoped MySQL data flow."
+      }
+    ],
+    "githubUrl": "https://github.com/arslan-placeholder/multi-tenant-business-app",
+    "liveDemoUrl": "https://demo-placeholder.example.com/multi-tenant"
+  },
+  {
+    "title": "E-Commerce Web App",
+    "slug": "laravel-ecommerce-web-app",
+    "shortDescription": "Full-featured Laravel storefront with catalog management, shopping cart, order flow, and user authentication.",
+    "coverImage": "/images/projects/laravel-ecommerce.jpg",
+    "tags": ["PHP", "Laravel", "MySQL", "Blade", "Authentication"],
+    "stack": "laravel",
+    "type": "personal",
+    "date": "2025",
+    "overview": "A complete PHP and Laravel e-commerce web application covering storefront browsing, category filtering, cart persistence, checkout order creation, and user account management. Built with a focus on clean MVC structure and reliable relational data modeling.",
+    "role": "Sole Developer — designed the MySQL schema, built authentication and authorization flows, implemented catalog/cart/order logic, and styled the Blade views.",
+    "features": [
+      "Product catalog with category organization, search, and detailed product pages",
+      "Shopping cart workflow with quantity updates and order total calculation",
+      "End-to-end order placement and order status tracking for customers and admins",
+      "User registration, login, session security, and protected account routes",
+      "Admin CRUD management for products, categories, and customer orders"
+    ],
+    "techStack": [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "Blade",
+      "Eloquent ORM",
+      "Bootstrap",
+      "HTML5 / CSS3"
+    ],
+    "challengesAndSolutions": [
+      {
+        "challenge": "Maintaining accurate order line items and pricing snapshots even if product prices change later.",
+        "solution": "Separated order items into a dedicated pivot-like table storing unit price and quantity at checkout time inside database transactions."
+      },
+      {
+        "challenge": "Protecting administrative catalog and order routes from standard customer sessions.",
+        "solution": "Added role verification middleware and form request validation across all administrative endpoints."
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/images/projects/laravel-ecommerce.jpg",
+        "alt": "Laravel E-Commerce Web App overview",
+        "caption": "Catalog, cart, checkout transaction flow, and admin management modules."
+      }
+    ],
+    "githubUrl": "https://github.com/arslan-placeholder/laravel-ecommerce",
+    "liveDemoUrl": "https://demo-placeholder.example.com/laravel-ecommerce"
+  },
+  {
+    "title": "E-Commerce MVC Application",
+    "slug": "dotnet-ecommerce-mvc",
+    "shortDescription": "Freelance ASP.NET MVC storefront with a secure role-based admin panel, SQL Server backend, and responsive UI.",
+    "coverImage": "/images/projects/dotnet-ecommerce.jpg",
+    "tags": ["ASP.NET MVC", "SQL Server", "C#", "Bootstrap", "RBAC"],
+    "stack": "dotnet",
+    "type": "freelance",
+    "date": "2024",
+    "overview": "A full-stack e-commerce web application delivered as a freelance project using ASP.NET MVC and SQL Server. Combines a responsive customer storefront with a secure administrative dashboard for day-to-day catalog and order operations.",
+    "role": "Freelance .NET Developer — built the backend controllers, SQL Server database layer, role-based authentication, admin CRUD dashboards, and responsive Bootstrap frontend.",
+    "features": [
+      "Secure admin panel with full CRUD operations for products, categories, and orders",
+      "Role-based authentication and authorization separating admins and shoppers",
+      "SQL Server database integration with structured queries and Entity Framework",
+      "Responsive storefront UI built with Razor views and Bootstrap",
+      "Server-side validation and error handling across checkout and admin forms"
+    ],
+    "techStack": [
+      "C#",
+      "ASP.NET MVC",
+      "SQL Server",
+      "Entity Framework",
+      "LINQ",
+      "Razor",
+      "Bootstrap",
+      "IIS"
+    ],
+    "challengesAndSolutions": [
+      {
+        "challenge": "Ensuring administrative actions could not be accessed directly via URL manipulation.",
+        "solution": "Applied custom authorization attributes and role checks at the controller and action level across all admin routes."
+      },
+      {
+        "challenge": "Keeping product listing and order history queries snappy as catalog entries grew.",
+        "solution": "Optimized LINQ queries and SQL Server indexing to avoid redundant joins and over-fetching on listing pages."
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/images/projects/dotnet-ecommerce.jpg",
+        "alt": "ASP.NET MVC E-Commerce Application overview",
+        "caption": "Storefront interface, role-protected admin panel, and SQL Server order management."
+      }
+    ],
+    "githubUrl": "https://github.com/arslan-placeholder/dotnet-ecommerce-mvc",
+    "liveDemoUrl": "https://demo-placeholder.example.com/dotnet-ecommerce"
+  },
+  {
+    "title": "School Management System",
+    "slug": "school-management-system",
+    "shortDescription": "Layered ASP.NET Core MVC application with Entity Framework Core Code-First for academic operations.",
+    "coverImage": "/images/projects/school-management.jpg",
+    "tags": ["ASP.NET Core MVC", "EF Core", "SQL Server", "C#", "Layered Architecture"],
+    "stack": "dotnet",
+    "type": "freelance",
+    "date": "2024",
+    "overview": "A freelance academic management system built with ASP.NET Core MVC and Entity Framework Core using a Code-First workflow. Structured with a clean separation of concerns across Controller, Business Logic (BL), and Data Access Layer (DAL) modules.",
+    "role": "Freelance .NET Developer — architected the 3-layer solution, authored EF Core Code-First models and migrations, implemented enrollment workflows, and configured dependency injection.",
+    "features": [
+      "Dedicated modules for Students, Teachers, Courses, and Student Enrollments",
+      "Entity Framework Core Code-First models, relationships, and SQL Server migrations",
+      "Clean layered architecture separating Controllers, Business Logic (BL), and Data Access Layer (DAL)",
+      "Dependency Injection wiring services and repositories cleanly across layers",
+      "Form validation, relational integrity checks, and IIS deployment readiness"
+    ],
+    "techStack": [
+      "C#",
+      "ASP.NET Core MVC",
+      "Entity Framework Core",
+      "SQL Server",
+      "LINQ",
+      "Dependency Injection",
+      "Razor"
+    ],
+    "challengesAndSolutions": [
+      {
+        "challenge": "Preventing business rules and data queries from becoming tightly coupled inside MVC controllers.",
+        "solution": "Separated the codebase into Controller, BL, and DAL layers connected via interfaces and ASP.NET Core's built-in Dependency Injection container."
+      },
+      {
+        "challenge": "Modeling many-to-many student-course enrollments with enrollment metadata cleanly.",
+        "solution": "Defined an explicit Enrollment join entity in EF Core Code-First with fluent configuration and validation rules in the business layer."
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/images/projects/school-management.jpg",
+        "alt": "School Management System layered architecture overview",
+        "caption": "Controller, Business Logic, and Data Access layers backed by EF Core and SQL Server."
+      }
+    ],
+    "githubUrl": "https://github.com/arslan-placeholder/school-management-system",
+    "liveDemoUrl": "https://demo-placeholder.example.com/school-management"
+  }
+]

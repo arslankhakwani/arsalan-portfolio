@@ -1,14 +1,27 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import {
+  Plus_Jakarta_Sans,
+  Space_Grotesk,
+  JetBrains_Mono,
+} from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { FloatingBadge } from "@/components/FloatingBadge";
+import { BackToTop } from "@/components/BackToTop";
 import { profile } from "@/data/profile";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
@@ -21,7 +34,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://arsalan-khakwani-portfolio.vercel.app"),
   title: {
-    default: `${profile.name} — Laravel Developer & .NET Freelancer`,
+    default: profile.siteTitle,
     template: `%s | ${profile.name}`,
   },
   description:
@@ -41,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: `${profile.name} — Laravel Developer | Also experienced in .NET`,
+    title: profile.siteTitle,
     description:
       "Backend developer building reliable web applications with Laravel, MySQL, REST APIs, multi-tenancy, and ASP.NET Core / MVC.",
     siteName: `${profile.name} Portfolio`,
@@ -56,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — Laravel Developer | Also experienced in .NET`,
+    title: profile.siteTitle,
     description:
       "Backend developer building reliable PHP, Laravel, MySQL, and ASP.NET applications.",
     images: ["/og-image.jpg"],
@@ -76,13 +89,16 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${plusJakarta.variable} ${jetbrainsMono.variable}`}
+      className={`${plusJakarta.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-screen font-sans antialiased flex flex-col">
+      <body className="relative flex min-h-screen flex-col overflow-x-clip bg-bg font-sans text-text antialiased">
         <ThemeProvider>
+          <AnimatedBackground />
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="relative z-10 flex-1">{children}</main>
           <Footer />
+          <FloatingBadge />
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>

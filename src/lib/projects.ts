@@ -37,6 +37,10 @@ export function getAllProjects(): Project[] {
   return projectsData as Project[];
 }
 
+export function getFeaturedProjects(limit = 3): Project[] {
+  return (projectsData as Project[]).slice(0, limit);
+}
+
 export function getProjectBySlug(slug: string): Project | undefined {
   return (projectsData as Project[]).find((project) => project.slug === slug);
 }
@@ -60,4 +64,23 @@ export function formatProjectTypeLabel(type: ProjectType): string {
 
 export function formatStackLabel(stack: ProjectStack): string {
   return stack === "laravel" ? "Laravel" : ".NET";
+}
+
+export function getProjectFeatureBadge(project: Project): string {
+  switch (project.slug) {
+    case "task-management-system":
+      return "⚡ Real-time notifications";
+    case "multi-tenant-business-app":
+      return "🏢 Multi-tenant";
+    case "laravel-ecommerce-web-app":
+      return "🛒 Cart & order workflow";
+    case "dotnet-ecommerce-mvc":
+      return "🔐 Role-based access";
+    case "school-management-system":
+      return "🧱 Layered architecture";
+    default:
+      return `${formatStackLabel(project.stack)} · ${formatProjectTypeLabel(
+        project.type
+      )}`;
+  }
 }

@@ -1,44 +1,97 @@
-import { ScanSearch } from "lucide-react";
+export interface StatItem {
+  value: string;
+  label: string;
+  numericValue?: number;
+  suffix?: string;
+  isTag?: boolean;
+}
+
+export interface SkillGroup {
+  category: string;
+  subtitle: string;
+  icon: "server" | "database" | "code" | "wrench";
+  items: string[];
+}
+
+export interface ExperienceItem {
+  role: string;
+  company: string;
+  period: string;
+  employmentType?: string;
+  highlights: string[];
+}
+
+/**
+ * Single easy-to-edit constant for experience duration shown across the site.
+ */
+export const EXPERIENCE_YEARS = 1;
+export const EXPERIENCE_LABEL = `${EXPERIENCE_YEARS}+ ${
+  EXPERIENCE_YEARS === 1 ? "year" : "years"
+}`;
 
 export const profile = {
   name: "Muhammad Arsalan",
-  title: "Laravel Developer | .NET Developer",
+  brandName: "Arsalan",
+  initials: "MA",
+  siteTitle: "Muhammad Arsalan — Laravel Developer | Also experienced in .NET",
+  aboutHeading: "Laravel Developer with .NET experience",
+  tagline: "Building reliable backend systems with Laravel and .NET.",
+  footerStack: "Laravel · MySQL · ASP.NET Core",
   location: "Islamabad, Pakistan",
   locationNote: "Open to remote & relocation",
+  heroBadge: "Open to opportunities · Islamabad, Pakistan",
+  heroRoles: [
+    "Laravel Developer",
+    "REST API Developer",
+    "Multi-Tenant Systems",
+    "Also experienced in .NET",
+  ],
+  heroSummary:
+    "Laravel developer at Netrix Cloud since June 2025, building web applications, REST APIs, and multi-tenant systems with PHP and MySQL, alongside freelance experience in ASP.NET MVC and ASP.NET Core.",
   email: "arslankhakwani001@gmail.com",
   company: "Netrix Cloud",
   languages: ["English", "Urdu", "Pashto", "Saraiki"],
   links: {
     github: "https://github.com/arslankhakwani",
-    linkedin: "https://www.linkedin.com/in/muhammad-arsalan-b0357a363?",
+    linkedin: "https://www.linkedin.com/in/muhammad-arsalan-b0357a363",
     laravelCv: "/cv/Muhammad-Arsalan-Laravel-CV.pdf",
-    dotnetCv: "",
+    dotnetCv: "/cv/Muhammad-Arsalan-DotNet-CV.pdf",
   },
   summary:
     "Laravel developer currently working at Netrix Cloud (since June 2025), building web applications with PHP, Laravel and MySQL: REST APIs, authentication and role-based access, multi-tenant architecture, and real-time notifications. Alongside my job, I have worked as a freelance .NET developer, delivering ASP.NET MVC and ASP.NET Core applications with SQL Server and Entity Framework. I care about clean code, solid database design, and performance.",
+  skillsIntro:
+    "Laravel and MySQL are my daily tools at Netrix Cloud. Alongside that, I've built and delivered applications using ASP.NET MVC, ASP.NET Core, and SQL Server as a freelancer.",
   stats: [
     {
-      value: "1.5+ yrs",
+      numericValue: EXPERIENCE_YEARS,
+      suffix: EXPERIENCE_YEARS === 1 ? "+ year" : "+ years",
+      value: EXPERIENCE_LABEL,
       label: "Professional Laravel experience",
     },
     {
+      numericValue: 5,
+      suffix: "",
       value: "5",
-      label: "Delivered projects",
+      label: "Projects",
     },
     {
-      value: "2 stacks",
-      label: "Laravel & .NET",
+      numericValue: 2,
+      suffix: "",
+      value: "2",
+      label: "Backend stacks",
     },
     {
       value: "Netrix Cloud",
-      label: "Currently employed full-time",
+      label: "Currently employed",
+      isTag: true,
     },
-  ],
+  ] as StatItem[],
   skills: {
     primary: [
       {
         category: "Laravel & PHP",
         subtitle: "Daily production work",
+        icon: "server",
         items: [
           "Laravel",
           "Eloquent ORM",
@@ -49,16 +102,13 @@ export const profile = {
           "REST APIs",
           "Pusher",
           "Laravel Scheduler",
-          "Laravel Events",
-          "Listeners",
-          "Observers",
-          "Laravel Queues",
           "Laravel Broadcast",
         ],
       },
       {
         category: "Database & Query Layer",
         subtitle: "Schema & performance",
+        icon: "database",
         items: [
           "MySQL",
           "Migrations",
@@ -67,11 +117,12 @@ export const profile = {
           "Query Optimization",
         ],
       },
-    ],
+    ] as SkillGroup[],
     secondary: [
       {
         category: ".NET Ecosystem",
         subtitle: "Freelance delivery",
+        icon: "code",
         items: [
           "C#",
           ".NET Core",
@@ -88,6 +139,7 @@ export const profile = {
       {
         category: "Shared Engineering & Tooling",
         subtitle: "Frontend basics & workflow",
+        icon: "wrench",
         items: [
           "HTML5",
           "CSS3",
@@ -101,7 +153,7 @@ export const profile = {
           "Visual Studio",
         ],
       },
-    ],
+    ] as SkillGroup[],
   },
   experience: [
     {
@@ -124,7 +176,6 @@ export const profile = {
       role: ".NET Developer",
       company: "Freelance",
       period: "Nov 2024 – Present",
-      employmentType: "Freelance",
       highlights: [
         "Built ASP.NET MVC and ASP.NET Core web applications",
         "Worked with SQL Server, stored procedures and complex queries",
@@ -133,7 +184,7 @@ export const profile = {
         "Debugged, fixed bugs, and optimized performance",
       ],
     },
-  ],
+  ] as ExperienceItem[],
   education: [
     {
       degree: "Bachelor of Science in Computer Science (BSCS)",
@@ -170,7 +221,7 @@ export const profile = {
     {
       question: "How quickly can you start?",
       answer:
-        "I am currently employed full-time at Netrix Cloud, so I would coordinate a standard notice period of [e.g., 2–4 weeks] with my current team. Feel free to reach out so we can align on timelines.",
+        "I'm currently employed full-time at Netrix Cloud, so I'd work out a standard notice period, typically 2 to 4 weeks, with my current team. Feel free to reach out so we can align on timelines.",
     },
   ],
 };

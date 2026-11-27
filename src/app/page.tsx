@@ -1,18 +1,22 @@
 import { HeroSection } from "@/components/HeroSection";
 import { StatsStrip } from "@/components/StatsStrip";
-import { HomeFeaturedProjects } from "@/components/HomeFeaturedProjects";
+import { SelectedWork } from "@/components/SelectedWork";
 import { HomeSkillsPreview } from "@/components/HomeSkillsPreview";
 import { HomeCtaSection } from "@/components/HomeCtaSection";
-import { getFeaturedProjects } from "@/lib/projects";
+import { getAllProjects } from "@/lib/projects";
 
 export default function HomePage() {
-  const featuredProjects = getFeaturedProjects(3);
+  const projects = getAllProjects();
 
   return (
     <>
       <HeroSection />
       <StatsStrip />
-      <HomeFeaturedProjects projects={featuredProjects} />
+      <SelectedWork
+        projects={projects}
+        showSectionHeader
+        showCaseStudyBanner={false}
+      />
       <HomeSkillsPreview />
       <HomeCtaSection />
     </>

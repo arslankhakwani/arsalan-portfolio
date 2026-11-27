@@ -13,9 +13,15 @@ type FilterValue = "all" | "laravel" | "dotnet" | "freelance";
 
 interface SelectedWorkProps {
   projects: Project[];
+  showSectionHeader?: boolean;
+  showCaseStudyBanner?: boolean;
 }
 
-export function SelectedWork({ projects }: SelectedWorkProps) {
+export function SelectedWork({
+  projects,
+  showSectionHeader = false,
+  showCaseStudyBanner = true,
+}: SelectedWorkProps) {
   const [filter, setFilter] = useState<FilterValue>("all");
 
   const counts = useMemo(() => {
@@ -46,8 +52,29 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
   ];
 
   return (
-    <section className="py-14 sm:py-20">
+    <section
+      id="work"
+      className={`scroll-mt-20 ${
+        showSectionHeader ? "py-20 sm:py-24" : "py-14 sm:py-20"
+      }`}
+    >
       <div className="mx-auto max-w-6xl px-6">
+        {showSectionHeader && (
+          <Reveal className="mb-10">
+            <p className="font-mono text-xs font-semibold uppercase tracking-widest text-accent">
+              My Work
+            </p>
+            <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-text sm:text-4xl">
+              5 Projects. 2 Stacks. Real Systems.
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-relaxed tracking-normal text-text-muted">
+              A selection of backend applications I&apos;ve built with Laravel
+              and .NET, each focused on clean architecture and reliable data
+              handling.
+            </p>
+          </Reveal>
+        )}
+
         {/* Filter Tabs */}
         <Reveal>
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -64,7 +91,7 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
                     type="button"
                     onClick={() => setFilter(item.value)}
                     aria-pressed={active}
-                    className={`relative inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                    className={`relative inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-semibold tracking-normal transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       active
                         ? "text-on-accent"
                         : "text-text-muted hover:text-text"
@@ -94,7 +121,7 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
               })}
             </div>
 
-            <p className="font-mono text-xs text-text-muted">
+            <p className="font-mono text-xs tracking-normal text-text-muted">
               Showing {filteredProjects.length} of {projects.length} projects
             </p>
           </div>
@@ -113,7 +140,7 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
         </motion.div>
 
         {/* Featured Case Study Highlight Banner */}
-        {featuredCaseStudy && (
+        {showCaseStudyBanner && featuredCaseStudy && (
           <Reveal delayMs={80} className="mt-16 sm:mt-20">
             <div className="rounded-3xl bg-gradient-to-br from-accent/60 via-accent-2/45 to-border p-[1px] shadow-card-hover">
               <div className="grid grid-cols-1 items-center gap-8 overflow-hidden rounded-[calc(1.5rem-1px)] bg-surface/95 p-6 backdrop-blur-xl sm:p-10 lg:grid-cols-12">
@@ -127,7 +154,7 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
                     {featuredCaseStudy.title}
                   </h2>
 
-                  <p className="mt-3 text-sm leading-relaxed text-text-muted sm:text-base">
+                  <p className="mt-3 text-sm leading-relaxed tracking-normal text-text-muted sm:text-base">
                     A collaborative Laravel module organized into projects,
                     folders, lists, and tasks—supporting task assignments,
                     threaded comments, real-time Pusher notifications, and
@@ -138,7 +165,7 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
                     {featuredCaseStudy.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-lg border border-border bg-bg-soft px-2.5 py-1 font-mono text-xs text-text-muted"
+                        className="rounded-lg border border-border bg-bg-soft px-2.5 py-1 font-mono text-xs tracking-normal text-text-muted"
                       >
                         {tag}
                       </span>
@@ -148,7 +175,7 @@ export function SelectedWork({ projects }: SelectedWorkProps) {
                   <div className="mt-7">
                     <Link
                       href={`/projects/${featuredCaseStudy.slug}`}
-                      className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-2 px-5 py-3 text-sm font-semibold text-on-accent shadow-glow transition-all duration-200 hover:scale-[1.02] hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                      className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-2 px-5 py-3 text-sm font-semibold tracking-normal text-on-accent shadow-glow transition-all duration-200 hover:scale-[1.02] hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
                     >
                       <span>Read the case study</span>
                       <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />

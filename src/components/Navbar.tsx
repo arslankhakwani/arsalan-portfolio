@@ -89,11 +89,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled || mobileOpen
+      className={`sticky top-0 z-50 transition-all duration-300 ${scrolled || mobileOpen
           ? "border-b border-border/80 bg-bg/85 shadow-card backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
-      }`}
+        }`}
     >
       {/* Scroll progress bar */}
       <motion.div
@@ -102,20 +101,14 @@ export function Navbar() {
         className="pointer-events-none absolute inset-x-0 top-0 h-[2px] origin-left bg-gradient-to-r from-accent to-accent-2"
       />
 
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
-        {/* Brand Logo: Arsalan. */}
-        <Link
-          href="/"
-          className="group inline-flex items-baseline rounded-lg font-display text-xl font-bold tracking-tight text-text transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-        >
-          <span>{profile.brandName}</span>
-          <span className="text-accent">.</span>
-        </Link>
+      <div className="mx-auto flex max-w-6xl items-center justify-end px-6 py-3.5 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+        {/* Left balanced spacer on desktop */}
+        <div className="hidden lg:block" aria-hidden="true" />
 
-        {/* Desktop Nav Links */}
+        {/* Centered Desktop Nav Links */}
         <nav
           aria-label="Primary navigation"
-          className="hidden items-center gap-1 lg:flex"
+          className="hidden items-center justify-center gap-1 lg:flex"
         >
           {navLinks.map((link) => {
             const active = isRouteActive(link.href);
@@ -124,9 +117,8 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
-                className={`relative rounded-xl px-3.5 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
-                  active ? "text-accent" : "text-text-muted hover:text-text"
-                }`}
+                className={`relative rounded-xl px-3 py-2 text-sm font-medium tracking-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${active ? "text-accent" : "text-text-muted hover:text-text"
+                  }`}
               >
                 {active && (
                   <motion.span
@@ -142,7 +134,7 @@ export function Navbar() {
         </nav>
 
         {/* Desktop Right Actions */}
-        <div className="hidden items-center gap-2.5 lg:flex">
+        <div className="hidden items-center justify-end gap-2 lg:flex">
           <button
             type="button"
             onClick={toggleTheme}
@@ -151,7 +143,7 @@ export function Navbar() {
                 ? `Switch to ${isDark ? "light" : "dark"} mode`
                 : "Toggle color theme"
             }
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-surface/85 text-text-muted backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-accent/50 hover:bg-surface-hover hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border bg-surface/85 text-text-muted backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-accent/50 hover:bg-surface-hover hover:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             {mounted ? (
               isDark ? (
@@ -171,14 +163,13 @@ export function Navbar() {
               onClick={() => setCvOpen((o) => !o)}
               aria-expanded={cvOpen}
               aria-haspopup="menu"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-surface/85 px-3.5 py-2 text-sm font-semibold text-text backdrop-blur-md transition-all duration-200 hover:border-accent/50 hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-xl border border-border bg-surface/85 px-3.5 py-2 text-sm font-semibold tracking-normal text-text backdrop-blur-md transition-all duration-200 hover:border-accent/50 hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <Download className="h-4 w-4 text-accent" />
               <span>Download CV</span>
               <ChevronDown
-                className={`h-3.5 w-3.5 text-text-muted transition-transform duration-200 ${
-                  cvOpen ? "rotate-180" : ""
-                }`}
+                className={`h-3.5 w-3.5 text-text-muted transition-transform duration-200 ${cvOpen ? "rotate-180" : ""
+                  }`}
               />
             </button>
 
@@ -197,12 +188,12 @@ export function Navbar() {
                     download="Muhammad-Arsalan-Laravel-CV.pdf"
                     role="menuitem"
                     onClick={() => setCvOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-text transition-colors hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                    className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm tracking-normal text-text transition-colors hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                   >
                     <div>
                       <div className="font-semibold">Laravel CV</div>
                       <div className="text-xs text-text-muted">
-                        Primary PHP / Laravel
+                        PHP / Laravel
                       </div>
                     </div>
                     <Download className="h-4 w-4 text-accent" />
@@ -212,12 +203,12 @@ export function Navbar() {
                     download="Muhammad-Arsalan-DotNet-CV.pdf"
                     role="menuitem"
                     onClick={() => setCvOpen(false)}
-                    className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-text transition-colors hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                    className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm tracking-normal text-text transition-colors hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                   >
                     <div>
                       <div className="font-semibold">.NET CV</div>
                       <div className="text-xs text-text-muted">
-                        ASP.NET Core &amp; MVC
+                        C# / ASP.NET Core
                       </div>
                     </div>
                     <Download className="h-4 w-4 text-accent-2" />
@@ -230,7 +221,7 @@ export function Navbar() {
           {/* Filled Hire Me CTA */}
           <Link
             href="/contact"
-            className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-accent to-accent-2 px-4 py-2 text-sm font-semibold text-on-accent shadow-glow transition-all duration-200 hover:scale-[1.02] hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+            className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-xl bg-gradient-to-r from-accent to-accent-2 px-4 py-2 text-sm font-semibold tracking-normal text-on-accent shadow-glow transition-all duration-200 hover:scale-[1.02] hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
             <span>Hire Me</span>
             <ArrowRight className="h-3.5 w-3.5" />
@@ -298,11 +289,10 @@ export function Navbar() {
                       href={link.href}
                       aria-current={active ? "page" : undefined}
                       onClick={() => setMobileOpen(false)}
-                      className={`rounded-xl px-3.5 py-2.5 text-sm font-medium transition-colors ${
-                        active
+                      className={`rounded-xl px-3.5 py-2.5 text-sm font-medium tracking-normal transition-colors ${active
                           ? "bg-accent/10 text-accent"
                           : "text-text-muted hover:bg-surface-hover hover:text-text"
-                      }`}
+                        }`}
                     >
                       {link.label}
                     </Link>
@@ -316,7 +306,7 @@ export function Navbar() {
                     href={profile.links.laravelCv}
                     download="Muhammad-Arsalan-Laravel-CV.pdf"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-center gap-2 rounded-xl border border-border bg-surface px-3 py-2.5 text-xs font-semibold text-text hover:bg-surface-hover"
+                    className="flex items-center justify-center gap-2 rounded-xl border border-border bg-surface px-3 py-2.5 text-xs font-semibold tracking-normal text-text hover:bg-surface-hover"
                   >
                     <Download className="h-3.5 w-3.5 text-accent" />
                     <span>Laravel CV</span>
@@ -325,7 +315,7 @@ export function Navbar() {
                     href={profile.links.dotnetCv}
                     download="Muhammad-Arsalan-DotNet-CV.pdf"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-center gap-2 rounded-xl border border-border bg-surface px-3 py-2.5 text-xs font-semibold text-text hover:bg-surface-hover"
+                    className="flex items-center justify-center gap-2 rounded-xl border border-border bg-surface px-3 py-2.5 text-xs font-semibold tracking-normal text-text hover:bg-surface-hover"
                   >
                     <Download className="h-3.5 w-3.5 text-accent-2" />
                     <span>.NET CV</span>
@@ -335,7 +325,7 @@ export function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-2 px-4 py-2.5 text-sm font-semibold text-on-accent shadow-glow"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-2 px-4 py-2.5 text-sm font-semibold tracking-normal text-on-accent shadow-glow"
                 >
                   <span>Hire Me</span>
                   <ArrowRight className="h-4 w-4" />

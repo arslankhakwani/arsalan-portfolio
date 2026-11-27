@@ -24,8 +24,8 @@ export function Footer() {
               href="/"
               className="inline-flex items-baseline rounded-lg font-display text-2xl font-bold tracking-tight text-text transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <span>{profile.brandName}</span>
-              <span className="text-accent">.</span>
+              <span>{profile.name}</span>
+              <span className="text-accent"></span>
             </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-text-muted">
               {profile.tagline}

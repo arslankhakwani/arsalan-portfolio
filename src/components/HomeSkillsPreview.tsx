@@ -44,9 +44,7 @@ export function HomeSkillsPreview() {
                   <Server className="h-5 w-5" />
                 </span>
                 <div>
-                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-accent">
-                    Primary
-                  </span>
+
                   <h3 className="font-display text-lg font-bold text-text">
                     {laravelGroup.category}
                   </h3>
@@ -73,9 +71,7 @@ export function HomeSkillsPreview() {
                   <Database className="h-5 w-5" />
                 </span>
                 <div>
-                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-accent">
-                    Primary
-                  </span>
+
                   <h3 className="font-display text-lg font-bold text-text">
                     {dbGroup.category}
                   </h3>
@@ -96,25 +92,22 @@ export function HomeSkillsPreview() {
 
           {/* .NET Secondary */}
           <Reveal delayMs={140}>
-            <div className="h-full rounded-2xl border border-border bg-surface/90 p-6 shadow-card">
+            <div className="h-full rounded-2xl border border-accent/35 bg-gradient-to-br from-accent/10 via-surface/95 to-accent-2/10 p-6 shadow-card">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-accent-2/30 bg-accent-2/10 text-accent-2">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent-2 text-on-accent shadow-glow">
                   <Code2 className="h-5 w-5" />
                 </span>
                 <div>
-                  <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-accent-2">
-                    Also Experienced In
-                  </span>
                   <h3 className="font-display text-lg font-bold text-text">
                     {dotnetGroup.category}
                   </h3>
                 </div>
               </div>
               <div className="mt-5 flex flex-wrap gap-2">
-                {dotnetGroup.items.slice(0, 8).map((skill) => (
+                {dotnetGroup.items.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-lg border border-border bg-bg-soft px-2.5 py-1 text-xs font-medium text-text"
+                    className="rounded-lg border border-accent/25 bg-surface px-2.5 py-1 text-xs font-medium text-text"
                   >
                     {skill}
                   </span>
